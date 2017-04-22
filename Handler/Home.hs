@@ -8,11 +8,11 @@ import           Data.Default       (def)
 import           Yesod              (Html, defaultLayout, setTitle)
 import           Yesod.Default.Util (widgetFileNoReload)
 
-import           Foundation         (Handler)
+import           Foundation         (Handler, getList)
 
 getHomeR :: Handler Html
 getHomeR = do
-    let filenames = ["readme.txt", "report.pdf", "music.wav"] :: [String]
+    filenames <- getList
     defaultLayout $ do
         setTitle "File Processor"
         $(widgetFileNoReload def "home")
