@@ -1,0 +1,7 @@
+$if null filenames
+    <p>No files have been uploaded yet.
+$else
+    <h2>Previously submitted files
+    <ul>
+        $forall filename <- filenames
+            <li>#{filename}
