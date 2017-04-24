@@ -22,6 +22,5 @@ instance Yesod App
 mkYesodData "App" $(parseRoutesFile "config/routes")
 
 getList :: Handler [Text]
-getList = do
-    App state <- getYesod
-    return state{-/hi-}
+getList =
+    getYesod >>= (\(App state) -> return state)
